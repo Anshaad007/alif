@@ -65,39 +65,16 @@ galleryImgs.forEach(img => {
   });
 });
 
-// Admission form: show/hide grade field and validate
+// Admission form submission to Google Sheets
 if (document.getElementById('admissionForm')) {
-  const courseSelect = document.getElementById('course');
-  const gradeField = document.getElementById('gradeField');
-  const gradeSelect = document.getElementById('grade');
-  const form = document.getElementById('admissionForm');
-  const statusDiv = document.getElementById('formStatus');
-
-  function toggleGradeField() {
-    if (courseSelect.value === 'Madrassa Classes') {
-      gradeField.style.display = '';
-      gradeSelect.required = true;
-    } else {
-      gradeField.style.display = 'none';
-      gradeSelect.required = false;
-      gradeSelect.value = '';
-    }
-  }
-  courseSelect.addEventListener('change', toggleGradeField);
-  toggleGradeField(); // Initial call
-
-  form.addEventListener('submit', function(e) {
-    if (courseSelect.value === 'Madrassa Classes' && !gradeSelect.value) {
-      statusDiv.style.color = 'red';
-      statusDiv.textContent = 'Please select a grade for Madrassa Classes.';
-      e.preventDefault();
-      return;
-    }
+  document.getElementById('admissionForm').addEventListener('submit', function(e) {
     e.preventDefault();
+    var form = e.target;
     var formData = new FormData(form);
+    var statusDiv = document.getElementById('formStatus');
     statusDiv.textContent = 'Submitting...';
     // TODO: Replace with your actual Google Apps Script Web App URL
-    var scriptURL ='https://script.google.com/macros/s/AKfycbyakLmhQQCvQvQdWe-HR68Jx_CZzpvrSpnQvUYZDmMfX-cXhg-R_VgaCaHPT4QZg6zm/exec';
+    var scriptURL = 'https://script.google.com/macros/s/AKfycbwmUT44ilZgdwOnpUJE41QdN5l_v__iZ9yJkAnAx3rHptqWbZ28gIiiJyftXrae7_Mfhg/exec';
     fetch(scriptURL, {
       method: 'POST',
       body: formData
@@ -107,7 +84,6 @@ if (document.getElementById('admissionForm')) {
         statusDiv.style.color = '#2e7d32';
         statusDiv.textContent = 'Application submitted successfully!';
         form.reset();
-        toggleGradeField();
       } else {
         throw new Error('Network response was not ok');
       }
