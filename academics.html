@@ -215,6 +215,68 @@
         margin: 0;
         color: #7a5c2e;
       }
+      @media (max-width: 900px) {
+        .categories-container {
+          flex-direction: column;
+          gap: 18px;
+          max-width: 99vw;
+        }
+        .category-card {
+          min-width: 90vw;
+          max-width: 98vw;
+          padding: 18px 8px 14px 8px;
+        }
+      }
+      @media (max-width: 700px) {
+        .dashboard-header {
+          padding: 0.5rem 0.5rem;
+        }
+        .dashboard-brand {
+          font-size: 1.1rem;
+        }
+        .dashboard-logo {
+          width: 28px;
+          height: 28px;
+          margin-right: 6px;
+        }
+        .dashboard-menu {
+          gap: 8px;
+          flex-wrap: wrap;
+          font-size: 0.98rem;
+        }
+        .dashboard-menu li a {
+          padding: 5px 8px;
+          border-radius: 6px;
+        }
+        .dashboard-main {
+          padding: 8px 2vw 8px 2vw;
+        }
+        .dashboard-section {
+          padding: 12px 2vw 12px 2vw;
+        }
+        .category-card {
+          min-width: 90vw;
+          max-width: 98vw;
+          padding: 14px 4vw 10px 4vw;
+        }
+        .category-title {
+          font-size: 1.1rem;
+        }
+        .category-icon {
+          font-size: 1.7rem;
+        }
+        .modal-content {
+          max-width: 98vw;
+          min-width: 0;
+          padding: 12px 4vw 10px 4vw;
+          font-size: 0.98rem;
+        }
+        .close-btn {
+          width: 28px;
+          height: 28px;
+          font-size: 1rem;
+        }
+      }
     </style>
   </head>
   <body>

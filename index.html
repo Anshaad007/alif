@@ -157,8 +157,8 @@
       <section id="contact" class="dashboard-section">
         <h2>Contact Us</h2>
         <p>
-          <strong>Address:</strong> Alif Moral School, XYZ Road, City, State,
-          Pincode
+          <strong>Address:</strong> Alif Moral School, Othukungal, Malppuram,
+          Kerala, 679324
         </p>
         <p><strong>Email:</strong> info@hiramoralschool.com</p>
         <p><strong>Phone:</strong> +91 98765 43210</p>
@@ -278,6 +278,9 @@
       .gallery img {
         border-radius: 10px;
         transition: transform 0.3s;
+        max-width: 100%;
+        height: auto;
+        box-sizing: border-box;
       }
       .gallery img:hover {
         transform: scale(1.03);
@@ -632,7 +635,8 @@
         .dashboard-section {
           padding: 12px 2vw 12px 2vw;
         }
-        .info-card, .quiz-card {
+        .info-card,
+        .quiz-card {
           min-width: 90vw;
           max-width: 98vw;
           padding: 18px 8px 14px 8px;
@@ -641,9 +645,15 @@
           width: 38px;
           height: 38px;
         }
+        .gallery {
+          padding: 8px 0;
+        }
         .gallery img {
-          width: 98vw;
+          width: 100%;
+          max-width: 98vw;
           height: 120px;
+          object-fit: cover;
+          box-sizing: border-box;
         }
         .dev-popup-content {
           padding: 12px 4px 10px 4px;
