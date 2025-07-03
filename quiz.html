@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz | Alif Moral School</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .dashboard-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        background: #fffbe6;
+        border-bottom: 1.5px solid #e6e6e6;
+        padding: 0.7rem 0 0.7rem 2.2rem;
+        z-index: 200;
+        box-shadow: 0 2px 8px rgba(191, 161, 74, 0.07);
+      }
+      .dashboard-brand {
+        display: flex;
+        align-items: center;
+        font-family: "Cairo", serif;
+        color: #bfa14a;
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      .dashboard-logo {
+        width: 38px;
+        height: 38px;
+        margin-right: 0.5rem;
+        vertical-align: middle;
+      }
+      .quiz-header,
+      .quiz-brand {
+        display: none;
+      }
+      body {
+        background: #fdf6e3;
+        font-family: "Roboto", Arial, sans-serif;
+      }
+      .quiz-container {
+        max-width: 600px;
+        margin: 60px auto 40px auto;
+        background: #fffbe6;
+        border-radius: 16px;
+        box-shadow: 0 2px 16px rgba(191, 161, 74, 0.08);
+        padding: 32px 24px;
+        animation: fadeIn 0.7s;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .quiz-title {
+        font-family: "Cairo", serif;
+        color: #bfa14a;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+      .quiz-form label {
+        font-weight: 500;
+        color: #7a5c2e;
+      }
+      .quiz-form select,
+      .quiz-form input[type="radio"] {
+        margin-bottom: 18px;
+      }
+      .quiz-question {
+        margin-bottom: 1.2rem;
+        transition: background 0.2s;
+        border-radius: 8px;
+        padding: 8px 0 8px 0;
+      }
+      .quiz-options {
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .quiz-options label {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: 38px;
+        background: #fdf6e3;
+        border: 1.5px solid #e6e6e6;
+        margin-bottom: 0;
+        padding: 7px 14px 7px 38px;
+        border-radius: 7px;
+        position: relative;
+        font-size: 1rem;
+        transition: background 0.18s, color 0.18s, border 0.18s;
+        box-sizing: border-box;
+      }
+      .quiz-options label.selected {
+        background: #e6f7e6;
+        border-color: #bfa14a;
+        color: #2e7d32;
+      }
+      .quiz-options input[type="radio"] {
+        display: none;
+      }
+      .quiz-options label::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        border: 2px solid #bfa14a;
+        border-radius: 50%;
+        background: #fff;
+        transition: border 0.2s, background 0.2s;
+      }
+      .quiz-options label.selected::before {
+        border-color: #2e7d32;
+        background: #e6f7e6;
+        animation: tickPop 0.3s;
+      }
+      .quiz-options label.selected::after {
+        content: "\2713";
+        color: #2e7d32;
+        font-size: 1.1rem;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%) scale(1.1);
+        opacity: 1;
+        transition: opacity 0.2s;
+        animation: tickPop 0.3s;
+      }
+      @keyframes tickPop {
+        0% {
+          transform: scale(0.7);
+          opacity: 0;
+        }
+        60% {
+          transform: scale(1.2);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1.1);
+          opacity: 1;
+        }
+      }
+      .quiz-btn {
+        background: linear-gradient(90deg, #7a5c2e 60%, #bfa14a 100%);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 28px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        font-family: "Cairo", serif;
+        transition: background 0.2s, transform 0.2s;
+        margin-top: 8px;
+      }
+      .quiz-btn:hover {
+        background: linear-gradient(90deg, #bfa14a 60%, #7a5c2e 100%);
+        transform: scale(1.04);
+      }
+      .quiz-btn:active {
+        transform: scale(0.97);
+      }
+      .quiz-result {
+        text-align: center;
+        font-size: 1.2rem;
+        margin-top: 2rem;
+        font-weight: 600;
+        animation: popIn 0.7s;
+      }
+      @keyframes popIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .quiz-form select:focus,
+      .quiz-form input[type="number"]:focus {
+        outline: 2px solid #bfa14a;
+        background: #fffde7;
+      }
+      .review-section {
+        margin-top: 24px;
+        background: #fffbe6;
+        border-radius: 14px;
+        box-shadow: 0 2px 12px rgba(191, 161, 74, 0.1);
+        padding: 18px 18px 10px 18px;
+        animation: fadeIn 0.7s;
+      }
+      .review-section > b {
+        color: #b71c1c;
+        font-size: 1.13rem;
+        display: block;
+        margin-bottom: 10px;
+      }
+      .review-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .review-card {
+        background: #fff;
+        border-left: 5px solid #b71c1c;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(191, 161, 74, 0.07);
+        padding: 14px 18px 10px 18px;
+        margin-bottom: 0;
+        animation: popIn 0.7s;
+        transition: box-shadow 0.2s;
+      }
+      .review-card:hover {
+        box-shadow: 0 6px 24px rgba(191, 161, 74, 0.18);
+      }
+      .review-q {
+        font-size: 1.08rem;
+        color: #b71c1c;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .wrong-icon {
+        color: #b71c1c;
+        font-size: 1.2rem;
+        margin-right: 4px;
+        font-weight: bold;
+      }
+      .review-ans {
+        margin-bottom: 2px;
+        font-size: 1.04rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .badge {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 8px;
+        font-size: 0.98rem;
+        font-weight: 600;
+        margin-right: 6px;
+      }
+      .badge-wrong {
+        background: #ffeaea;
+        color: #b71c1c;
+        border: 1px solid #f5bcbc;
+      }
+      .badge-correct {
+        background: #e6f7e6;
+        color: #2e7d32;
+        border: 1px solid #bfa14a;
+      }
+      .wrong-text {
+        color: #b71c1c;
+        font-weight: 500;
+      }
+      .correct-text {
+        color: #2e7d32;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      class="dashboard-header"
+      style="
+        position: static;
+        box-shadow: none;
+        background: #fffbe6;
+        padding: 0.7rem 0 0.7rem 2.2rem;
+      "
+    >
+      <nav
+        class="dashboard-nav"
+        style="justify-content: flex-start; align-items: center"
+      >
+        <div class="dashboard-brand" style="font-size: 1.35rem">
+          <img
+            src="https://img.icons8.com/color/48/000000/school-building.png"
+            alt="School Logo"
+            class="dashboard-logo"
+            style="
+              width: 38px;
+              height: 38px;
+              margin-right: 0.5rem;
+              vertical-align: middle;
+            "
+          />
+          <span>Alif Moral School</span>
+        </div>
+      </nav>
+    </header>
+    <div class="quiz-container">
+      <div class="quiz-title">Class Eligibility Quiz</div>
+      <form class="quiz-form" id="classSelectForm">
+        <label for="preferredClass">Select your preferred grade:</label><br />
+        <select id="preferredClass" name="preferredClass" required>
+          <option value="">-- Choose Grade --</option>
+          <option value="Class 1">Class 1</option>
+          <option value="Class 2">Class 2</option>
+          <option value="Class 3">Class 3</option>
+          <option value="Class 4">Class 4</option>
+          <option value="Class 5">Class 5</option>
+          <option value="Class 6">Class 6</option>
+          <option value="Class 7">Class 7</option>
+          <option value="Class 8">Class 8</option>
+          <option value="Class 9">Class 9</option>
+        </select>
+        <br />
+        <label for="juzCompleted"
+          >How many Juz (parts of Quran) have you already completed?</label
+        ><br />
+        <input
+          type="number"
+          id="juzCompleted"
+          name="juzCompleted"
+          min="0"
+          max="30"
+          required
+          style="width: 80px; margin-bottom: 18px"
+        />
+        <br />
+        <button type="submit" class="quiz-btn">Start Quiz</button>
+      </form>
+      <form class="quiz-form" id="quizForm" style="display: none"></form>
+      <div id="quizResult" class="quiz-result"></div>
+    </div>
+    <script>
+      // Questions for each class (sample, can be expanded)
+      const classQuestions = {
+        "Class 1": [
+          {
+            q: "How many pillars of Islam are there?",
+            options: ["3", "5", "6", "4"],
+            answer: 1,
+          },
+          {
+            q: "What is the name of our religion?",
+            options: ["Islam", "Hinduism", "Christianity", "Judaism"],
+            answer: 0,
+          },
+          {
+            q: "Who is the last Prophet?",
+            options: ["Adam (AS)", "Musa (AS)", "Muhammad (ﷺ)", "Isa (AS)"],
+            answer: 2,
+          },
+          {
+            q: "What do we say before eating?",
+            options: [
+              "Alhamdulillah",
+              "Bismillah",
+              "Subhanallah",
+              "Astaghfirullah",
+            ],
+            answer: 1,
+          },
+          {
+            q: "Which holy book was given to us?",
+            options: ["Torah", "Bible", "Qur’an", "Zabur"],
+            answer: 2,
+          },
+          {
+            q: "What do we say after sneezing?",
+            options: ["Bismillah", "JazakAllah", "Alhamdulillah", "InshaAllah"],
+            answer: 2,
+          },
+          {
+            q: "What is the name of our first Prophet?",
+            options: ["Nuh (AS)", "Adam (AS)", "Musa (AS)", "Ibrahim (AS)"],
+            answer: 1,
+          },
+          {
+            q: "How many times do Muslims pray each day?",
+            options: ["3", "7", "5", "2"],
+            answer: 2,
+          },
+          {
+            q: "Who created everything?",
+            options: ["Muhammad (ﷺ)", "Allah", "Jibreel", "Parents"],
+            answer: 1,
+          },
+          {
+            q: "What is the name of the month in which we fast?",
+            options: ["Muharram", "Safar", "Ramadan", "Shawwal"],
+            answer: 2,
+          },
+        ],
+        "Class 2": [
+          {
+            q: "What does ‘Alhamdulillah’ mean?",
+            options: [
+              "Thank you Allah",
+              "Please help",
+              "Good morning",
+              "Peace",
+            ],
+            answer: 0,
+          },
+          {
+            q: "How many Rak’ahs in Fajr prayer?",
+            options: ["4", "2", "3", "5"],
+            answer: 1,
+          },
+          {
+            q: "Which Prophet built the Kaaba?",
+            options: [
+              "Musa (AS)",
+              "Isa (AS)",
+              "Ibrahim (AS) and Ismail (AS)",
+              "Nuh (AS)",
+            ],
+            answer: 2,
+          },
+          {
+            q: "What do Muslims say to greet one another?",
+            options: ["Hello", "Salaam", "As-salamu Alaikum", "Good day"],
+            answer: 2,
+          },
+          {
+            q: "What is the name of the angel who brought the Quran?",
+            options: ["Israfeel", "Mikail", "Jibreel", "Malik"],
+            answer: 2,
+          },
+          {
+            q: "Who is our creator?",
+            options: ["Prophet Muhammad ﷺ", "Allah", "Jibreel", "Parents"],
+            answer: 1,
+          },
+          {
+            q: "Which direction do Muslims face while praying?",
+            options: ["East", "West", "Kaaba", "Sun"],
+            answer: 2,
+          },
+          {
+            q: "What do we do in Ramadan?",
+            options: ["Travel", "Sleep", "Fast", "Celebrate Eid"],
+            answer: 2,
+          },
+          {
+            q: "What is the name of our holy day (Jumu’ah)?",
+            options: ["Monday", "Friday", "Saturday", "Sunday"],
+            answer: 1,
+          },
+          {
+            q: "What do we say when we see something beautiful?",
+            options: [
+              "Astaghfirullah",
+              "Subhanallah",
+              "Bismillah",
+              "Alhamdulillah",
+            ],
+            answer: 1,
+          },
+        ],
+        "Class 3": [
+          {
+            q: "What is the first Surah of the Qur'an?",
+            options: ["Al-Baqarah", "Al-Fatiha", "An-Nas", "Al-Ikhlas"],
+            answer: 1,
+          },
+          {
+            q: "How many names of Allah are there (Asma ul Husna)?",
+            options: ["25", "100", "99", "108"],
+            answer: 2,
+          },
+          {
+            q: "Who was the Prophet during the great flood?",
+            options: ["Musa (AS)", "Nuh (AS)", "Yusuf (AS)", "Isa (AS)"],
+            answer: 1,
+          },
+          {
+            q: "Which Surah is called the ‘Heart of the Quran’?",
+            options: ["Al-Fatiha", "Al-Baqarah", "Yaseen", "Ikhlas"],
+            answer: 2,
+          },
+          {
+            q: "What is 'Sadaqah'?",
+            options: [
+              "Obligatory prayer",
+              "Charity given from heart",
+              "Fasting",
+              "Eid gift",
+            ],
+            answer: 1,
+          },
+          {
+            q: "How many times do we say Takbeer in Eid Salah (first rak’ah)?",
+            options: ["4", "5", "7", "3"],
+            answer: 2,
+          },
+          {
+            q: "What do we say when we make a mistake?",
+            options: [
+              "JazakAllah",
+              "Astaghfirullah",
+              "Alhamdulillah",
+              "Subhanallah",
+            ],
+            answer: 1,
+          },
+          {
+            q: "What do we call someone who has memorized the Quran?",
+            options: ["Imam", "Qari", "Hafidh", "Sheikh"],
+            answer: 2,
+          },
+          {
+            q: "Which Prophet could talk to animals?",
+            options: ["Yusuf (AS)", "Suleiman (AS)", "Dawud (AS)", "Ayub (AS)"],
+            answer: 1,
+          },
+          {
+            q: "What is the Kaaba covered with?",
+            options: [
+              "Green Cloth",
+              "Black cloth (Kiswah)",
+              "White sheet",
+              "Red velvet",
+            ],
+            answer: 1,
+          },
+        ],
+        "Class 4": [
+          {
+            q: "In which city was Prophet Muhammad ﷺ born?",
+            options: ["Madinah", "Makkah", "Taif", "Jerusalem"],
+            answer: 1,
+          },
+          {
+            q: "What does 'Ar-Rahman' mean?",
+            options: [
+              "The Wise",
+              "The Strong",
+              "The Most Merciful",
+              "The Creator",
+            ],
+            answer: 2,
+          },
+          {
+            q: "What is the name of the Prophet’s ﷺ first wife?",
+            options: [
+              "Aisha (RA)",
+              "Hafsa (RA)",
+              "Khadijah (RA)",
+              "Fatima (RA)",
+            ],
+            answer: 2,
+          },
+          {
+            q: "How many Juz are there in the Quran?",
+            options: ["30", "114", "20", "99"],
+            answer: 0,
+          },
+          {
+            q: "Which Prophet was swallowed by a big fish?",
+            options: ["Musa (AS)", "Nuh (AS)", "Yunus (AS)", "Isa (AS)"],
+            answer: 2,
+          },
+          {
+            q: "What is 'Hijrah' in Islam?",
+            options: [
+              "A type of prayer",
+              "Migration of the Prophet ﷺ to Madinah",
+              "Hajj ritual",
+              "Islamic festival",
+            ],
+            answer: 1,
+          },
+          {
+            q: "Which angel will blow the trumpet on the Day of Judgment?",
+            options: [
+              "Jibreel (AS)",
+              "Mikail (AS)",
+              "Israfeel (AS)",
+              "Malik (AS)",
+            ],
+            answer: 2,
+          },
+          {
+            q: "What is the name of the night when the Qur'an was revealed?",
+            options: ["Laylatul Qadr", "Eid night", "Arafah", "Hijrah"],
+            answer: 0,
+          },
+          {
+            q: "What is the meaning of “Subhanallah”?",
+            options: [
+              "All praise to Allah",
+              "Glory be to Allah",
+              "Allah is Great",
+              "I seek forgiveness",
+            ],
+            answer: 1,
+          },
+          {
+            q: "How many daily prayers are Fard (obligatory)?",
+            options: ["4", "5", "6", "7"],
+            answer: 1,
+          },
+        ],
+        "Class 5": [
+          {
+            q: "Which battle was the first fought by the Muslims?",
+            options: ["Uhud", "Khandaq", "Badr", "Hunayn"],
+            answer: 2,
+          },
+          {
+            q: "What is 'Tawheed'?",
+            options: [
+              "Giving charity",
+              "Belief in One God",
+              "Prayer",
+              "Fasting",
+            ],
+            answer: 1,
+          },
+          {
+            q: "How many Prophets are mentioned by name in the Qur'an?",
+            options: ["12", "25", "30", "40"],
+            answer: 1,
+          },
+          {
+            q: "Which Surah is the longest in the Qur'an?",
+            options: ["Al-Fatiha", "An-Nisa", "Al-Baqarah", "Al-Imran"],
+            answer: 2,
+          },
+          {
+            q: "Who was the Prophet that interpreted dreams and was imprisoned?",
+            options: ["Musa (AS)", "Yusuf (AS)", "Ibrahim (AS)", "Isa (AS)"],
+            answer: 1,
+          },
+          {
+            q: "What is the difference between Zakat and Sadaqah?",
+            options: [
+              "Same thing",
+              "Zakat is optional, Sadaqah is required",
+              "Zakat is obligatory, Sadaqah is optional",
+              "Sadaqah is for the rich only",
+            ],
+            answer: 2,
+          },
+          {
+            q: "How many years did Prophet Nuh (AS) preach to his people?",
+            options: ["100 years", "250 years", "950 years", "500 years"],
+            answer: 2,
+          },
+          {
+            q: "What does 'Akhlaq' mean in Islam?",
+            options: [
+              "Faith",
+              "Behavior and good manners",
+              "Worship",
+              "Clothes",
+            ],
+            answer: 1,
+          },
+          {
+            q: "Which Prophet was known for his beautiful voice and Psalms (Zabur)?",
+            options: ["Dawud (AS)", "Sulaiman (AS)", "Musa (AS)", "Isa (AS)"],
+            answer: 0,
+          },
+          {
+            q: "Which Surah protects from evil (Jinn, magic)?",
+            options: ["Al-Baqarah", "Al-Falaq", "Al-Kafirun", "Al-Fatiha"],
+            answer: 1,
+          },
+        ],
+        "Class 6": [
+          {
+            q: "What does “La ilaha illallah” mean?",
+            options: [
+              "There is no Prophet but Allah",
+              "There is no god but Allah",
+              "Allah is one of the gods",
+              "Muhammad is God",
+            ],
+            answer: 1,
+          },
+          {
+            q: "Which Surah must be recited in every rak’ah of Salah?",
+            options: [
+              "Surah Yaseen",
+              "Surah Ikhlas",
+              "Surah Fatiha",
+              "Surah Nas",
+            ],
+            answer: 2,
+          },
+          {
+            q: "What is the meaning of ‘Iman’ in Islam?",
+            options: ["Worship", "Good deeds", "Faith", "Cleanliness"],
+            answer: 2,
+          },
+          {
+            q: "What does “Fard” mean in Islamic rulings?",
+            options: ["Recommended", "Forbidden", "Optional", "Obligatory"],
+            answer: 3,
+          },
+          {
+            q: "Which Prophet was tested with a severe illness but remained patient?",
+            options: ["Ayub (AS)", "Musa (AS)", "Ibrahim (AS)", "Isa (AS)"],
+            answer: 0,
+          },
+          {
+            q: "How old was Prophet Muhammad ﷺ when he received the first revelation?",
+            options: ["30", "25", "40", "50"],
+            answer: 2,
+          },
+          {
+            q: "Which Surah has no Bismillah at the beginning?",
+            options: [
+              "Surah An-Nas",
+              "Surah At-Tawbah",
+              "Surah Fatiha",
+              "Surah Yaseen",
+            ],
+            answer: 1,
+          },
+          {
+            q: "How many Makki and Madani Surahs are there in the Quran?",
+            options: [
+              "86 Makki, 28 Madani",
+              "50 each",
+              "30 Makki, 84 Madani",
+              "75 each",
+            ],
+            answer: 0,
+          },
+          {
+            q: "What is the name of the treaty signed before the conquest of Makkah?",
+            options: [
+              "Treaty of Madinah",
+              "Treaty of Badr",
+              "Treaty of Hudaybiyyah",
+              "Pact of Aqabah",
+            ],
+            answer: 2,
+          },
+          {
+            q: "Which day is called the 'Day of Standing' during Hajj?",
+            options: ["Eid day", "Arafah", "Mina", "Friday"],
+            answer: 1,
+          },
+        ],
+        "Class 7": [
+          {
+            q: "Which Prophet was able to control the wind and jinn?",
+            options: ["Dawud (AS)", "Musa (AS)", "Sulaiman (AS)", "Isa (AS)"],
+            answer: 2,
+          },
+          {
+            q: "Which Surah was revealed entirely at once?",
+            options: [
+              "Surah Fatiha",
+              "Surah An-Nas",
+              "Surah Al-An'am",
+              "Surah Yusuf",
+            ],
+            answer: 2,
+          },
+          {
+            q: "What is the ruling on Salah in Islam?",
+            options: ["Sunnah", "Mustahabb", "Fard", "Makruh"],
+            answer: 2,
+          },
+          {
+            q: "Which Prophet received the Tawrah (Torah)?",
+            options: ["Isa (AS)", "Musa (AS)", "Ibrahim (AS)", "Muhammad (ﷺ)"],
+            answer: 1,
+          },
+          {
+            q: "What are the three categories of Tawheed?",
+            options: [
+              "Oneness, Purity, Worship",
+              "Ar-Rububiyyah, Al-Uluhiyyah, Al-Asma wa Sifat",
+              "Shirk, Imaan, Deen",
+              "Hidayah, Risalah, Akhlaaq",
+            ],
+            answer: 1,
+          },
+          {
+            q: "In which Hijri year did the Prophet ﷺ pass away?",
+            options: ["5 AH", "8 AH", "10 AH", "11 AH"],
+            answer: 3,
+          },
+          {
+            q: "What is the ruling of fasting in Ramadan for adult Muslims?",
+            options: ["Sunnah", "Fard", "Optional", "Makruh"],
+            answer: 1,
+          },
+          {
+            q: "How many companions participated in the Battle of Badr?",
+            options: ["1000", "313", "900", "1200"],
+            answer: 1,
+          },
+          {
+            q: "Which Prophet's nation was destroyed by stones from the sky?",
+            options: ["Nuh (AS)", "Lut (AS)", "Shu’ayb (AS)", "Saleh (AS)"],
+            answer: 1,
+          },
+          {
+            q: "What is “Ghusl”?",
+            options: [
+              "Dry ablution",
+              "Minor ablution",
+              "Full body purification",
+              "Washing hands only",
+            ],
+            answer: 2,
+          },
+        ],
+        "Class 8": [
+          {
+            q: "What is the meaning of 'Kufr' in Islam?",
+            options: ["Worship", "Disbelief", "Patience", "Prayer"],
+            answer: 1,
+          },
+          {
+            q: "How many verses (Ayahs) are there in the Qur’an?",
+            options: ["6236", "6000", "6666", "7000"],
+            answer: 0,
+          },
+          {
+            q: "What is the Arabic term for the purification of wealth (charity)?",
+            options: ["Hajj", "Fidyah", "Zakat", "Sadaqah"],
+            answer: 2,
+          },
+          {
+            q: "Which Prophet's people were punished by a loud scream (Sayhah)?",
+            options: ["Nuh (AS)", "Saleh (AS)", "Lut (AS)", "Shu’ayb (AS)"],
+            answer: 1,
+          },
+          {
+            q: "Which Surah has two Bismillahs in it?",
+            options: [
+              "Surah Taubah",
+              "Surah Rahman",
+              "Surah Naml",
+              "Surah Kahf",
+            ],
+            answer: 2,
+          },
+          {
+            q: "Which Prophet was known for his incredible patience?",
+            options: ["Ayub (AS)", "Musa (AS)", "Yusuf (AS)", "Isa (AS)"],
+            answer: 0,
+          },
+          {
+            q: "Which Caliph compiled the Qur’an into one Mushaf?",
+            options: ["Abu Bakr (RA)", "Uthman (RA)", "Umar (RA)", "Ali (RA)"],
+            answer: 1,
+          },
+          {
+            q: "What does “Shirk” mean?",
+            options: [
+              "Sincerity to Allah",
+              "Praying at night",
+              "Associating partners with Allah",
+              "Worshiping with clean heart",
+            ],
+            answer: 2,
+          },
+          {
+            q: "What is the name of the land where Prophet Musa (AS) received the Torah?",
+            options: ["Makkah", "Madinah", "Mount Sinai", "Palestine"],
+            answer: 2,
+          },
+          {
+            q: "Which angel is in charge of taking souls at death?",
+            options: ["Mikail", "Malik", "Israfeel", "Malak al-Mawt"],
+            answer: 3,
+          },
+        ],
+        "Class 9": [
+          {
+            q: "What are the three main parts of Imaan (faith)?",
+            options: [
+              "Belief in heart, speech of tongue, actions of limbs",
+              "Worship, fasting, patience",
+              "Salah, zakat, Hajj",
+              "Prayer, Quran, charity",
+            ],
+            answer: 0,
+          },
+          {
+            q: "Which companion was known as the 'scribe of the Prophet' ﷺ?",
+            options: [
+              "Umar (RA)",
+              "Ali (RA)",
+              "Zayd ibn Thabit (RA)",
+              "Abu Huraira (RA)",
+            ],
+            answer: 2,
+          },
+          {
+            q: "What is the Arabic word for Islamic jurisprudence?",
+            options: ["Aqeedah", "Fiqh", "Hadith", "Sunnah"],
+            answer: 1,
+          },
+          {
+            q: "What are the conditions of Salah to be valid?",
+            options: [
+              "Sincerity and niyyah",
+              "Wudu, covering awrah, facing Qiblah",
+              "Fasting and Zakah",
+              "Clean heart and tongue",
+            ],
+            answer: 1,
+          },
+          {
+            q: "Which Surah talks about the people of the cave (Ashab al-Kahf)?",
+            options: ["Surah Taha", "Surah Kahf", "Surah Yusuf", "Surah Qasas"],
+            answer: 1,
+          },
+          {
+            q: "Who was known as the ‘Sword of Allah’?",
+            options: [
+              "Ali (RA)",
+              "Umar (RA)",
+              "Khalid ibn al-Waleed (RA)",
+              "Abu Ubaidah (RA)",
+            ],
+            answer: 2,
+          },
+          {
+            q: "What are the five Maqasid ash-Shariah (objectives of Islamic law)?",
+            options: [
+              "Belief, worship, fasting, zakah, Hajj",
+              "Life, religion, intellect, wealth, lineage",
+              "Salah, fasting, good manners, purity, unity",
+              "Worship, knowledge, action, character, mercy",
+            ],
+            answer: 1,
+          },
+          {
+            q: "Which Prophet’s nation was punished by turning into stones after demanding a she-camel?",
+            options: ["Saleh (AS)", "Nuh (AS)", "Lut (AS)", "Musa (AS)"],
+            answer: 0,
+          },
+          {
+            q: "In Islamic inheritance, who gets twice the share of the female?",
+            options: ["Mother", "Brother", "Husband", "Father"],
+            answer: 1,
+          },
+          {
+            q: "Which Hadith collection is considered the most authentic after the Qur'an?",
+            options: [
+              "Sunan Abu Dawood",
+              "Sahih Muslim",
+              "Sahih al-Bukhari",
+              "Tirmidhi",
+            ],
+            answer: 2,
+          },
+        ],
+        // Add more classes as needed, fallback to Class 1 if not found
+      };
+      const gradeList = [
+        "Class 1",
+        "Class 2",
+        "Class 3",
+        "Class 4",
+        "Class 5",
+        "Class 6",
+        "Class 7",
+        "Class 8",
+        "Class 9",
+      ];
+      // Step 1: Class selection
+      document
+        .getElementById("classSelectForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const selectedClass = document.getElementById("preferredClass").value;
+          const juzCompleted = document.getElementById("juzCompleted").value;
+          if (
+            !selectedClass ||
+            juzCompleted === "" ||
+            juzCompleted < 0 ||
+            juzCompleted > 30
+          )
+            return;
+          // Animate out
+          this.style.animation = "fadeOut 0.5s";
+          setTimeout(() => {
+            this.style.display = "none";
+            const quizForm = document.getElementById("quizForm");
+            quizForm.style.display = "";
+            quizForm.style.animation = "fadeIn 0.7s";
+            // Pick questions for class, fallback to Class 1
+            const questions =
+              classQuestions[selectedClass] || classQuestions["Class 1"];
+            quizForm.innerHTML = "";
+            questions.forEach((q, idx) => {
+              const qDiv = document.createElement("div");
+              qDiv.className = "quiz-question";
+              qDiv.innerHTML =
+                `<b>Q${idx + 1}:</b> ${q.q}<div class='quiz-options'>` +
+                q.options
+                  .map(
+                    (opt, i) =>
+                      `<label><input type='radio' name='q${idx}' value='${i}' required><span>${opt}</span></label>`
+                  )
+                  .join("") +
+                "</div>";
+              quizForm.appendChild(qDiv);
+            });
+            quizForm.innerHTML +=
+              '<button type="submit" class="quiz-btn">Submit Answers</button>';
+            // Store for result
+            quizForm.dataset.selectedClass = selectedClass;
+            quizForm.dataset.questions = JSON.stringify(questions);
+            quizForm.dataset.juzCompleted = juzCompleted;
+            // Add option highlight
+            quizForm
+              .querySelectorAll('input[type="radio"]')
+              .forEach((radio) => {
+                radio.addEventListener("change", function () {
+                  quizForm
+                    .querySelectorAll(`input[name='${this.name}']`)
+                    .forEach((r) => {
+                      r.parentElement.classList.remove("selected");
+                    });
+                  this.parentElement.classList.add("selected");
+                });
+              });
+          }, 400);
+        });
+      // Step 2: Quiz submission
+      document
+        .getElementById("quizForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const selectedClass = this.dataset.selectedClass;
+          const questions = JSON.parse(this.dataset.questions);
+          const juzCompleted = this.dataset.juzCompleted;
+          let score = 0;
+          let incorrectDetails = [];
+          for (let i = 0; i < questions.length; i++) {
+            const userAns = this[`q${i}`].value;
+            if (parseInt(userAns) === questions[i].answer) {
+              score++;
+            } else {
+              incorrectDetails.push({
+                idx: i,
+                question: questions[i].q,
+                userChoice: questions[i].options[parseInt(userAns)],
+                correctChoice: questions[i].options[questions[i].answer],
+              });
+            }
+          }
+          let resultMsg = `<div style='margin-bottom:8px;'>Juz completed: <b>${juzCompleted}</b></div>`;
+          if (score >= 5) {
+            resultMsg += `<span style='color:#2e7d32;'>Congratulations! You are eligible for <b>${selectedClass}</b>.<br>Your Score: ${score}/10</span>`;
+          } else {
+            let idx = gradeList.indexOf(selectedClass);
+            let recClass = idx > 0 ? gradeList[idx - 1] : "Class 1";
+            resultMsg += `<span style='color:#b71c1c;'>Oops, you are not eligible for <b>${selectedClass}</b>.<br>We recommend you join <b>${recClass}</b>.<br>Your Score: ${score}/10</span>`;
+          }
+          if (incorrectDetails.length > 0) {
+            resultMsg += `<div class='review-section'><b>Review your incorrect answers:</b><div class='review-list'>`;
+            incorrectDetails.forEach((item) => {
+              resultMsg += `
+                <div class='review-card'>
+                  <div class='review-q'><span class='wrong-icon'>✗</span> <b>Q${
+                    item.idx + 1
+                  }:</b> ${item.question}</div>
+                  <div class='review-ans'><span class='badge badge-wrong'>Your answer:</span> <span class='wrong-text'>${
+                    item.userChoice
+                  }</span></div>
+                  <div class='review-ans'><span class='badge badge-correct'>Correct answer:</span> <span class='correct-text'>${
+                    item.correctChoice
+                  }</span></div>
+                </div>
+              `;
+            });
+            resultMsg += `</div></div>`;
+          }
+          this.style.animation = "fadeOut 0.5s";
+          setTimeout(() => {
+            this.style.display = "none";
+            const resultDiv = document.getElementById("quizResult");
+            resultDiv.innerHTML = resultMsg;
+            resultDiv.style.animation = "popIn 0.7s";
+          }, 400);
+        });
+    </script>
+  </body>
+</html>

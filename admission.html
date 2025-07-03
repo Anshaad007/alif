@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admissions | Alif Moral School</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(135deg, #fdf6e3 0%, #f8f5ee 100%);
+        font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+        color: #5a4321;
+        margin: 0;
+        padding: 0;
+      }
+      .dashboard-header {
+        background: #fff;
+        padding: 1rem 2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 100;
+      }
+      .dashboard-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .dashboard-brand {
+        display: flex;
+        align-items: center;
+        font-family: "Cairo", serif;
+        color: #7a5c2e;
+        font-size: 1.5rem;
+      }
+      .dashboard-logo {
+        width: 48px;
+        height: 48px;
+        margin-right: 0.5rem;
+      }
+      .dashboard-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 1.5rem;
+      }
+      .dashboard-menu a {
+        text-decoration: none;
+        color: #5a4321;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .dashboard-menu a:hover {
+        color: #7a5c2e;
+      }
+      .dashboard-menu .active {
+        font-weight: 700;
+        color: #7a5c2e;
+      }
+      .dashboard-main {
+        padding: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .admission-section {
+        background: #fdf6e3
+          url("https://www.transparenttextures.com/patterns/moroccan.png");
+        border-radius: 18px;
+        box-shadow: 0 2px 16px rgba(191, 161, 74, 0.08);
+        padding: 36px 28px 28px 28px;
+        margin-bottom: 32px;
+        border: 1.5px solid #e6e6e6;
+        text-align: center;
+      }
+      .admission-section h2 {
+        font-family: "Cairo", serif;
+        color: #bfa14a;
+        font-size: 2rem;
+        margin-bottom: 1.2rem;
+      }
+      .admission-section p {
+        font-size: 1.15rem;
+        color: #7a5c2e;
+        margin-bottom: 1.5rem;
+      }
+      .admission-form {
+        background: #fffbe6;
+        border-radius: 14px;
+        padding: 28px 24px 18px 24px;
+        box-shadow: 0 2px 8px rgba(191, 161, 74, 0.07);
+        border: 1.5px solid #e6e6e6;
+        max-width: 500px;
+        margin: 0 auto;
+        text-align: left;
+      }
+      .admission-form label {
+        display: block;
+        margin-bottom: 8px;
+        color: #7a5c2e;
+        font-weight: 500;
+        font-family: "Cairo", serif;
+      }
+      .admission-form input,
+      .admission-form select,
+      .admission-form textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #bfa14a;
+        margin-bottom: 18px;
+        font-size: 1rem;
+        font-family: "Roboto", Arial, sans-serif;
+        background: #fdf6e3;
+        color: #5a4321;
+        box-sizing: border-box;
+      }
+      .admission-form button {
+        background: linear-gradient(90deg, #7a5c2e 60%, #bfa14a 100%);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 28px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        font-family: "Cairo", serif;
+        transition: background 0.2s, transform 0.2s;
+        margin-top: 8px;
+      }
+      .admission-form button:hover {
+        background: linear-gradient(90deg, #bfa14a 60%, #7a5c2e 100%);
+        transform: scale(1.04);
+      }
+      .admission-info {
+        margin-top: 2.5rem;
+        color: #2e7d32;
+        font-size: 1.08rem;
+        background: #fffbe6;
+        border-radius: 10px;
+        padding: 18px 12px;
+        box-shadow: 0 2px 8px rgba(191, 161, 74, 0.07);
+        border-left: 5px solid #bfa14a;
+        text-align: left;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .dashboard-footer {
+        text-align: center;
+        padding: 1rem 0;
+        background: #f8f5ee;
+        position: relative;
+        z-index: 100;
+      }
+      .dashboard-footer p {
+        margin: 0;
+        color: #7a5c2e;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="dashboard-header">
+      <nav class="dashboard-nav">
+        <div class="dashboard-brand">
+          <img
+            src="https://img.icons8.com/color/48/000000/school-building.png"
+            alt="School Logo"
+            class="dashboard-logo"
+          />
+          <span>Alif Moral School</span>
+        </div>
+        <ul class="dashboard-menu">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#courses">Courses</a></li>
+          <li><a href="index.html#admissions" class="active">Admissions</a></li>
+          <li><a href="index.html#gallery">Gallery</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="dashboard-main">
+      <section class="admission-section">
+        <h2>Admissions Open!</h2>
+        <p>
+          Welcome to Alif Moral School's admissions page. We are excited to
+          welcome new students for the 2025–2026 academic year! Please fill out
+          the form below to apply online, or visit our office between 9 AM and 3
+          PM for in-person assistance.
+        </p>
+        <form class="admission-form" id="admissionForm">
+          <label for="studentName">Student Name</label>
+          <input type="text" id="studentName" name="studentName" required />
+
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" name="dob" required />
+
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender" required>
+            <option value="">Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="parentName">Parent/Guardian Name</label>
+          <input type="text" id="parentName" name="parentName" required />
+
+          <label for="contact">Contact Number</label>
+          <input type="tel" id="contact" name="contact" required />
+
+          <label for="address">Address</label>
+          <textarea id="address" name="address" rows="2" required></textarea>
+
+          <label for="course">Preferred Course</label>
+          <select id="course" name="course" required>
+            <option value="">Select</option>
+            <option value="Hifz Course">Hifz Course</option>
+            <option value="Islamic Studies & Quranic Education">
+              Islamic Studies & Quranic Education
+            </option>
+            <option value="Arabic Language">Arabic Language</option>
+            <option value="Khutbah Training">Khutbah Training</option>
+            <option value="Madrassa Classes">Madrassa Classes</option>
+          </select>
+
+          <button type="submit">Submit Application</button>
+          <div id="formStatus" style="margin-top: 12px; font-weight: 500"></div>
+        </form>
+        <div
+          id="formMessage"
+          style="text-align: center; margin-top: 10px"
+        ></div>
+        <div class="admission-info">
+          <strong>Need help?</strong> For any queries, please contact us at
+          <a
+            href="mailto:info@hiramoralschool.com"
+            style="color: #bfa14a; text-decoration: underline"
+            >info@hiramoralschool.com</a
+          >
+          or call <b>+91 98765 43210</b>.<br />
+          <br />
+          <b>Office Hours:</b> 9 AM – 3 PM (Monday to Saturday)
+        </div>
+      </section>
+    </main>
+    <footer class="dashboard-footer">
+      <p>&copy; 2025 Alif Moral School. All rights reserved.</p>
+    </footer>
+    <script>
+      document
+        .getElementById("admissionForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          var form = e.target;
+          var formData = new FormData(form);
+          var statusDiv = document.getElementById("formStatus");
+          statusDiv.textContent = "Submitting...";
+          // TODO: Replace with your actual Google Apps Script Web App URL
+          var scriptURL =
+            "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
+          fetch(scriptURL, {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => {
+              if (response.ok) {
+                statusDiv.style.color = "#2e7d32";
+                statusDiv.textContent = "Application submitted successfully!";
+                form.reset();
+              } else {
+                throw new Error("Network response was not ok");
+              }
+            })
+            .catch((error) => {
+              statusDiv.style.color = "red";
+              statusDiv.textContent =
+                "Submission failed. Please try again later.";
+            });
+        });
+    </script>
+  </body>
+</html>

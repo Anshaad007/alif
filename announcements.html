@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alif Announcements | Alif Moral School</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(135deg, #fdf6e3 0%, #f8f5ee 100%);
+        font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+        color: #5a4321;
+        margin: 0;
+        padding: 0;
+      }
+      .dashboard-header {
+        background: #fff;
+        padding: 1rem 2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 100;
+      }
+      .dashboard-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .dashboard-brand {
+        display: flex;
+        align-items: center;
+        font-family: "Cairo", serif;
+        color: #7a5c2e;
+        font-size: 1.5rem;
+      }
+      .dashboard-logo {
+        width: 48px;
+        height: 48px;
+        margin-right: 0.5rem;
+      }
+      .dashboard-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 1.5rem;
+      }
+      .dashboard-menu a {
+        text-decoration: none;
+        color: #5a4321;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .dashboard-menu a:hover {
+        color: #7a5c2e;
+      }
+      .dashboard-menu .active {
+        font-weight: 700;
+        color: #7a5c2e;
+      }
+      .dashboard-main {
+        padding: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .announcement-section {
+        background: #fdf6e3
+          url("https://www.transparenttextures.com/patterns/moroccan.png");
+        border-radius: 18px;
+        box-shadow: 0 2px 16px rgba(191, 161, 74, 0.08);
+        padding: 36px 28px 28px 28px;
+        margin-bottom: 32px;
+        border: 1.5px solid #e6e6e6;
+      }
+      .announcement-section h2 {
+        font-family: "Cairo", serif;
+        color: #bfa14a;
+        font-size: 2rem;
+        margin-bottom: 1.2rem;
+        text-align: center;
+      }
+      .announcement-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .announcement-item {
+        background: #fffbe6;
+        border-radius: 10px;
+        margin-bottom: 18px;
+        padding: 18px 20px;
+        box-shadow: 0 2px 8px rgba(191, 161, 74, 0.07);
+        border-left: 5px solid #bfa14a;
+        font-size: 1.08rem;
+      }
+      .announcement-date {
+        color: #7a5c2e;
+        font-size: 0.98rem;
+        font-weight: 500;
+        margin-bottom: 6px;
+        display: block;
+      }
+      .dashboard-footer {
+        text-align: center;
+        padding: 1rem 0;
+        background: #f8f5ee;
+        position: relative;
+        z-index: 100;
+      }
+      .dashboard-footer p {
+        margin: 0;
+        color: #7a5c2e;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="dashboard-header">
+      <nav class="dashboard-nav">
+        <div class="dashboard-brand">
+          <img
+            src="https://img.icons8.com/color/48/000000/school-building.png"
+            alt="School Logo"
+            class="dashboard-logo"
+          />
+          <span>Alif Moral School</span>
+        </div>
+        <ul class="dashboard-menu">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#courses">Courses</a></li>
+          <li><a href="index.html#admissions">Admissions</a></li>
+          <li><a href="index.html#gallery">Gallery</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="dashboard-main">
+      <section class="announcement-section">
+        <h2>Latest Announcements</h2>
+        <ul class="announcement-list">
+          <li class="announcement-item">
+            <span class="announcement-date">July 3, 2025</span>
+            Admissions for the 2025–2026 academic year are now open! Apply
+            online or visit our office for more details.
+          </li>
+          <li class="announcement-item">
+            <span class="announcement-date">June 25, 2025</span>
+            Eid holidays will be observed from June 28 to July 1. Classes will
+            resume on July 2.
+          </li>
+          <li class="announcement-item">
+            <span class="announcement-date">June 10, 2025</span>
+            Congratulations to all students who participated in the Annual Quiz
+            Competition! Winners will be announced soon.
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="dashboard-footer">
+      <p>&copy; 2025 Alif Moral School. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Alif Moral School</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        background: linear-gradient(135deg, #fdf6e3 0%, #f8f5ee 100%);
+        font-family: "Roboto", Arial, sans-serif;
+        color: #5a4321;
+        margin: 0;
+        padding: 0;
+      }
+      .dashboard-header {
+        background: #fffbe6;
+        padding: 0.7rem 0 0.7rem 2.2rem;
+        border-bottom: 1.5px solid #e6e6e6;
+        box-shadow: 0 2px 8px rgba(191, 161, 74, 0.07);
+        position: static;
+        z-index: 100;
+      }
+      .dashboard-brand {
+        display: flex;
+        align-items: center;
+        font-family: "Cairo", serif;
+        color: #bfa14a;
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      .dashboard-logo {
+        width: 38px;
+        height: 38px;
+        margin-right: 0.5rem;
+        vertical-align: middle;
+      }
+      .about-container {
+        max-width: 700px;
+        margin: 60px auto 40px auto;
+        background: #fffbe6;
+        border-radius: 18px;
+        box-shadow: 0 2px 16px rgba(191, 161, 74, 0.08);
+        padding: 36px 28px 28px 28px;
+        text-align: center;
+      }
+      .about-title {
+        font-family: "Cairo", serif;
+        color: #bfa14a;
+        font-size: 2.1rem;
+        margin-bottom: 1.2rem;
+      }
+      .about-card {
+        background: linear-gradient(135deg, #fffbe6 60%, #f8e9b7 100%);
+        border-radius: 18px;
+        padding: 32px 28px 22px 28px;
+        box-shadow: 0 4px 18px rgba(191, 161, 74, 0.13);
+        border: 2px solid #e6d89c;
+        margin: 0 auto;
+        max-width: 520px;
+        text-align: left;
+        font-size: 1.13rem;
+        color: #5a4321;
+        transition: transform 0.18s cubic-bezier(0.4, 1.3, 0.6, 1),
+          box-shadow 0.18s cubic-bezier(0.4, 1.3, 0.6, 1), border-color 0.18s;
+        position: relative;
+        overflow: hidden;
+      }
+      .about-card:hover {
+        transform: scale(1.025);
+        box-shadow: 0 8px 32px 0 rgba(191, 161, 74, 0.18);
+        border-color: #bfa14a;
+      }
+      .about-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 18px;
+        pointer-events: none;
+        box-shadow: 0 0 0 0 #bfa14a;
+        transition: box-shadow 0.3s cubic-bezier(0.4, 1.3, 0.6, 1);
+      }
+      .about-card:hover::after {
+        box-shadow: 0 0 16px 2px #bfa14a44;
+      }
+      .about-card h3 {
+        color: #7a5c2e;
+        font-family: "Cairo", serif;
+        margin-top: 0;
+      }
+      .about-card ul {
+        margin: 0 0 0 1.2em;
+        padding: 0;
+        color: #7a5c2e;
+      }
+      .about-card li {
+        margin-bottom: 0.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="dashboard-header">
+      <nav
+        class="dashboard-nav"
+        style="justify-content: flex-start; align-items: center"
+      >
+        <div class="dashboard-brand">
+          <img
+            src="https://img.icons8.com/color/48/000000/school-building.png"
+            alt="School Logo"
+            class="dashboard-logo"
+          />
+          <span>Alif Moral School</span>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="about-container">
+        <div class="about-title">🕌 About Us – Alif Online Madrassa</div>
+        <div class="about-card">
+          <p>
+            Alif Online Madrassa is a faith-based educational platform committed
+            to nurturing the moral, spiritual, and intellectual development of
+            students across the globe. Rooted in Islamic values and guided by
+            prophetic teachings, our school offers a balanced blend of Qur’anic
+            education, character development, and essential academic learning —
+            all delivered online with care and excellence.
+          </p>
+          <p>
+            Our mission is to build a generation of confident Muslims who embody
+            Islamic principles in every aspect of life — from daily conduct to
+            critical thinking, from prayer to problem-solving.
+          </p>
+          <h3 style="color: #bfa14a; margin-top: 1.5em">🌟 Our Vision</h3>
+          <p style="font-style: italic; color: #7a5c2e">
+            "To nurture hearts with Imaan, minds with knowledge, and lives with
+            purpose — in service to Allah and society."
+          </p>
+          <h3 style="color: #bfa14a; margin-top: 1.5em">🎯 What We Offer</h3>
+          <ul style="margin-bottom: 1.2em">
+            <li>📘 Qur’anic Studies with tajweed and tafsir</li>
+            <li>🕋 Islamic Etiquette & Values for character-building</li>
+            <li>🧮 Academic Support in English, Math, and Science</li>
+            <li>🗣️ Arabic Language for understanding the Qur’an</li>
+            <li>
+              🧑‍🏫 Flexible Batches for children, youth, professionals, and elders
+            </li>
+          </ul>
+          <p>
+            We offer customized learning tracks including Hifdh programs,
+            Tajweed batches, weekend-only classes, and special schemes for Gulf,
+            European, and preschool time zones.
+          </p>
+          <h3 style="color: #bfa14a; margin-top: 1.5em">💎 Why Alif?</h3>
+          <ul style="margin-bottom: 1.2em">
+            <li>🎓 Trained Ustadhas and Ustadhs</li>
+            <li>🌍 Access from anywhere in the world</li>
+            <li>🧠 Spiritual + academic excellence</li>
+            <li>💻 Live classes with recorded backups</li>
+            <li>🕊️ Environment focused on Adab, Imaan, and Ilm</li>
+          </ul>
+          <h3 style="color: #bfa14a; margin-top: 1.5em">🌱 Our Core Values</h3>
+          <table
+            style="width: 100%; margin-bottom: 1.2em; border-collapse: collapse"
+          >
+            <tr>
+              <td>🌙 <b>Imaan</b></td>
+              <td>Centering Allah in learning and life</td>
+            </tr>
+            <tr>
+              <td>🫶 <b>Akhlaaq</b></td>
+              <td>Living with humility, respect, and kindness</td>
+            </tr>
+            <tr>
+              <td>📖 <b>Ilm</b></td>
+              <td>Seeking knowledge as a sacred journey</td>
+            </tr>
+            <tr>
+              <td>🌏 <b>Global Unity</b></td>
+              <td>Welcoming students from all walks of life</td>
+            </tr>
+          </table>
+          <p style="margin-top: 1.2em">
+            At Alif Online Madrassa, we don't just teach subjects — we shape
+            souls, guide hearts, and prepare students to succeed in this world
+            and the Hereafter.
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

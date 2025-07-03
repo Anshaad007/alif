@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alif Moral School</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@600&family=Amiri:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="dashboard-bg">
+    <header class="dashboard-header">
+      <nav class="dashboard-nav">
+        <div class="dashboard-brand">
+          <img
+            src="https://img.icons8.com/color/48/000000/school-building.png"
+            alt="School Logo"
+            class="dashboard-logo"
+          />
+          <span>Alif Moral School</span>
+        </div>
+        <ul class="dashboard-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#courses" id="courses-nav-link">Courses</a></li>
+          <li><a href="#admissions">Admissions</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <!-- <li><a href="#academics" id="academics-nav-link">Academics</a></li> -->
+        </ul>
+        <div class="dev-topright" id="devTopRight" title="About Developer">
+          <img
+            src="https://img.icons8.com/ios-filled/32/ffffff/code.png"
+            alt="About Developer"
+          />
+        </div>
+      </nav>
+    </header>
+    <main class="dashboard-main">
+      <!-- Hero header and its text removed as requested -->
+      <div class="dashboard-card-row">
+        <div
+          class="info-card"
+          id="announcements"
+          style="cursor: pointer"
+          onclick="window.location.href='announcements.html'"
+        >
+          <img
+            src="https://img.icons8.com/color/96/000000/megaphone.png"
+            alt="Announcement Icon"
+            class="card-icon"
+          />
+          <h2>Alif Announcements</h2>
+          <p>
+            Stay updated with the latest news, events, and important notices
+            from Alif Moral School. Check here regularly for school-wide
+            announcements and updates!
+          </p>
+        </div>
+        <div
+          class="info-card"
+          id="courses"
+          style="cursor: pointer"
+          onclick="window.location.href='academics.html'"
+        >
+          <img
+            src="https://img.icons8.com/color/96/000000/books.png"
+            alt="Books Icon"
+            class="card-icon"
+          />
+          <h2>Courses</h2>
+          <p>
+            We offer a wide range of courses to support holistic development:
+            Quranic Studies for spiritual growth, Arabic Language etc. Our
+            curriculum is designed to empower students for academic excellence
+            and personal growth.
+          </p>
+        </div>
+        <div
+          class="info-card"
+          id="admissions"
+          style="cursor: pointer"
+          onclick="window.location.href='admission.html'"
+        >
+          <img
+            src="https://img.icons8.com/color/96/000000/edit-property.png"
+            alt="Admission Icon"
+            class="card-icon"
+          />
+          <h2>Admissions</h2>
+          <p>
+            Admissions are open for the 2025–2026 academic year. Click here to
+            apply online or visit our office between 9 AM and 3 PM.
+          </p>
+        </div>
+        <div
+          class="info-card quiz-card"
+          id="quiz"
+          style="cursor: pointer"
+          onclick="window.location.href='quiz.html'"
+        >
+          <img src="quiz_3407038.png" alt="Quiz Icon" class="card-icon" />
+          <h2>Class Suitability Quiz</h2>
+          <p>
+            Take a short aptitude test to help us recommend the most suitable
+            class for your child. Click here to begin the quiz!
+          </p>
+        </div>
+        <div
+          class="info-card"
+          id="about"
+          style="cursor: pointer"
+          onclick="window.location.href='about.html'"
+        >
+          <img
+            src="https://img.icons8.com/color/96/000000/mosque.png"
+            alt="Mosque Icon"
+            class="card-icon"
+          />
+          <h2>About Us</h2>
+          <p>
+            Alif Moral School is dedicated to nurturing moral, academic, and
+            spiritual growth in children. Founded on Islamic values, we aim to
+            develop leaders who make a positive impact in the world.
+          </p>
+        </div>
+        <!-- Removed the Academics card as requested -->
+      </div>
+      <section id="gallery" class="dashboard-section">
+        <h2>Gallery</h2>
+        <div class="gallery">
+          <img
+            src="gettyimages-1033164992-612x612.jpg"
+            alt="Muslim Kids Playing Outside"
+          />
+          <img
+            src="gettyimages-1937528527-612x612.jpg"
+            alt="Muslim Kids Praying"
+          />
+          <img
+            src="gettyimages-489672138-612x612.jpg"
+            alt="Muslim Kids in Classroom"
+          />
+          <img
+            src="gettyimages-1364734547-612x612.jpg"
+            alt="Muslim Kids Playing in Schoolyard"
+          />
+        </div>
+      </section>
+
+      <section id="contact" class="dashboard-section">
+        <h2>Contact Us</h2>
+        <p>
+          <strong>Address:</strong> Alif Moral School, XYZ Road, City, State,
+          Pincode
+        </p>
+        <p><strong>Email:</strong> info@hiramoralschool.com</p>
+        <p><strong>Phone:</strong> +91 98765 43210</p>
+      </section>
+    </main>
+    <footer class="dashboard-footer">
+      <p>&copy; 2025 Alif Moral School. All rights reserved.</p>
+      <p style="font-size: 0.98rem; color: #bfa14a; margin-top: 4px">
+        Developed by Muhammed Anshad
+      </p>
+    </footer>
+    <div class="dev-popup" id="devPopup">
+      <div class="dev-popup-content">
+        <span class="dev-close" id="devClose">&times;</span>
+        <div class="dev-avatar">
+          <img
+            src="https://img.icons8.com/ios-filled/50/ffffff/code.png"
+            alt="Developer Avatar"
+          />
+        </div>
+        <h3 style="margin-top: 0; color: #bfa14a">Developer Info</h3>
+        <div style="margin-bottom: 6px"><b>Name:</b> Muhammed Anshad</div>
+        <div>
+          <b>Email:</b>
+          <a href="mailto:mhdasnshadkt007@gmail.com"
+            >mhdasnshadkt007@gmail.com</a
+          >
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Scheherazade+New:wght@700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@600&family=Roboto&display=swap");
+
+      body,
+      body.dashboard-bg {
+        font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+        background-color: #f9f9f6;
+        color: #333;
+        line-height: 1.6;
+        background: linear-gradient(135deg, #fdf6e3 0%, #f8f5ee 100%);
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      /* HEADINGS */
+      h1,
+      h2,
+      h3,
+      h4,
+      .dashboard-header h1,
+      .dashboard-header h2,
+      .dashboard-header h3,
+      .dashboard-header h4 {
+        font-family: "Cairo", "Scheherazade New", "Amiri", serif;
+        color: #2e7d32;
+      }
+      /* NAVIGATION */
+      .dashboard-nav,
+      nav {
+        background: transparent !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+      .dashboard-brand span,
+      nav h1 {
+        color: #7a5c2e !important;
+        text-shadow: 0 2px 8px #fffbe6, 0 1px 0 #bfa14a;
+      }
+      .dashboard-menu li a,
+      nav ul li a {
+        color: #ff8000d3;
+        font-weight: 600;
+      }
+      /* BUTTONS */
+      .btn-primary,
+      .quiz-card button,
+      .info-card button,
+      button {
+        background-color: #2e7d32;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s;
+        font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+      }
+      .btn-primary:hover,
+      .quiz-card button:hover,
+      .info-card button:hover,
+      button:hover {
+        background-color: #43a047;
+      }
+      /* SECTIONS */
+      section,
+      .dashboard-section {
+        padding: 4rem 2rem;
+        background-color: #fff;
+        border-radius: 12px;
+        margin: 2rem auto 2rem auto;
+        max-width: 1000px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+      /* SECTION TITLES */
+      .section-title,
+      .dashboard-section h2 {
+        text-align: center;
+        font-size: 2rem;
+        border-bottom: 3px solid #d4af37;
+        padding-bottom: 0.5rem;
+        margin-bottom: 2rem;
+        color: #2e7d32;
+        font-family: "Cairo", "Scheherazade New", "Amiri", serif;
+      }
+      /* GALLERY */
+      .gallery img {
+        border-radius: 10px;
+        transition: transform 0.3s;
+      }
+      .gallery img:hover {
+        transform: scale(1.03);
+      }
+      /* FOOTER */
+      footer,
+      .dashboard-footer {
+        background: transparent !important;
+        color: #5a4321 !important;
+        padding: 1rem !important;
+        text-align: center;
+        border-top: none !important;
+        margin-top: 44px;
+        font-size: 1.05rem;
+        font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Scheherazade+New:wght@700&display=swap");
+      body.dashboard-bg {
+        background: linear-gradient(135deg, #fdf6e3 0%, #f8f5ee 100%);
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+      .dashboard-header {
+        background: #fdf6e3
+          url("https://www.transparenttextures.com/patterns/wood.png");
+        box-shadow: 0 2px 8px rgba(139, 69, 19, 0.08);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 3px solid #bfa14a;
+      }
+      .dashboard-brand {
+        display: flex;
+        align-items: center;
+        font-family: "Scheherazade New", "Amiri", serif;
+        font-size: 2rem;
+        color: #7a5c2e;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-shadow: 0 2px 8px #f8f5ee;
+      }
+      .dashboard-logo {
+        width: 38px;
+        height: 38px;
+        margin-right: 12px;
+        filter: drop-shadow(0 2px 6px #e6e6e6);
+      }
+      .dashboard-menu {
+        list-style: none;
+        display: flex;
+        gap: 28px;
+        margin: 0;
+        padding: 0;
+      }
+      .dashboard-menu li a {
+        text-decoration: none;
+        color: #5a4321;
+        font-weight: 500;
+        padding: 7px 18px;
+        border-radius: 8px;
+        transition: background 0.2s, color 0.2s;
+      }
+      .dashboard-menu li a:hover,
+      .dashboard-menu li a:focus {
+        background: #f7ecd0;
+        color: #bfa14a;
+      }
+      .dashboard-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .dashboard-hero {
+        /* Removed background image and animation */
+        border-radius: 18px 18px 0 0;
+        box-shadow: 0 2px 12px rgba(191, 161, 74, 0.08);
+        margin: 36px 0 0 0;
+        padding: 60px 0 40px 0;
+        text-align: center;
+        border: 2px solid #e6e6e6;
+        border-bottom: none;
+        position: relative;
+      }
+      .arabic-divider {
+        width: 100%;
+        height: 32px;
+        background: url("https://svgshare.com/i/14kA.svg") repeat-x center;
+        margin-bottom: 32px;
+        margin-top: -8px;
+      }
+      .hero-content h2 {
+        color: #7a5c2e;
+        font-size: 2.4rem;
+        margin-bottom: 10px;
+        font-family: "Scheherazade New", "Amiri", serif;
+        letter-spacing: 1px;
+        text-shadow: 0 2px 8px #f8f5ee;
+      }
+      .hero-content p {
+        color: #5a4321;
+        font-size: 1.2rem;
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+      .dashboard-card-row {
+        display: flex;
+        gap: 36px;
+        justify-content: center;
+        align-items: stretch;
+        margin: 40px auto 30px auto;
+        flex-wrap: wrap;
+      }
+      .info-card {
+        background: #fdf6e3
+          url("https://www.transparenttextures.com/patterns/moroccan.png");
+        border-radius: 32px;
+        box-shadow: 0 2px 16px rgba(191, 161, 74, 0.08);
+        padding: 36px 28px 28px 28px;
+        flex: 1 1 280px;
+        min-width: 260px;
+        max-width: 340px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: box-shadow 0.2s, transform 0.2s;
+        margin-bottom: 16px;
+        position: relative;
+        overflow: hidden;
+        border: 1.5px solid #e6e6e6;
+        animation: fadeInCard 1s;
+      }
+      @keyframes fadeInCard {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .card-icon {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 10px;
+        transition: transform 0.2s;
+        filter: drop-shadow(0 2px 6px #e6e6e6);
+      }
+      .info-card h2 {
+        color: #7a5c2e;
+        margin-bottom: 14px;
+        font-size: 1.5rem;
+        text-align: center;
+        font-family: "Scheherazade New", "Amiri", serif;
+        letter-spacing: 1px;
+      }
+      .info-card p {
+        color: #5a4321;
+        text-align: center;
+        font-size: 1.08rem;
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+      .info-card:hover {
+        box-shadow: 0 12px 36px rgba(191, 161, 74, 0.18);
+        transform: translateY(-6px) scale(1.04);
+        border-color: #bfa14a;
+      }
+      .info-card:hover .card-icon {
+        transform: scale(1.18) rotate(-6deg);
+      }
+      .quiz-card {
+        min-width: 280px;
+        max-width: 340px;
+        background: #fdf6e3
+          url("https://www.transparenttextures.com/patterns/moroccan.png");
+        border-radius: 32px;
+        box-shadow: 0 2px 16px rgba(191, 161, 74, 0.1);
+        padding: 28px 18px 18px 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 16px;
+        border: 1.5px solid #e6e6e6;
+        animation: fadeInCard 1.2s;
+      }
+      .quiz-card h2 {
+        color: #bfa14a;
+        margin-bottom: 14px;
+        font-family: "Scheherazade New", "Amiri", serif;
+        font-size: 1.3rem;
+        text-align: center;
+      }
+      .quiz-card form {
+        width: 100%;
+      }
+      .quiz-question {
+        margin-bottom: 14px;
+        text-align: left;
+      }
+      .quiz-question label {
+        color: #5a4321;
+        font-weight: 500;
+      }
+      .quiz-question select {
+        width: 100%;
+        padding: 7px;
+        border-radius: 8px;
+        border: 1px solid #bfa14a;
+        margin-top: 6px;
+        font-size: 1rem;
+      }
+      .quiz-card button,
+      .info-card button {
+        background: linear-gradient(90deg, #7a5c2e 60%, #bfa14a 100%);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 20px;
+        font-size: 1rem;
+        margin-top: 8px;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 8px rgba(191, 161, 74, 0.08);
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+      .quiz-card button:hover,
+      .info-card button:hover {
+        background: linear-gradient(90deg, #bfa14a 60%, #7a5c2e 100%);
+        transform: scale(1.04);
+        box-shadow: 0 4px 16px rgba(191, 161, 74, 0.13);
+      }
+      .quiz-result {
+        margin-top: 16px;
+        font-size: 1.05rem;
+        color: #7a5c2e;
+        background: #f8f5ee;
+        border-radius: 10px;
+        padding: 12px 8px;
+        box-shadow: 0 2px 8px rgba(191, 161, 74, 0.07);
+      }
+      .gallery {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+        background: url("https://www.transparenttextures.com/patterns/wood.png");
+        border-radius: 16px;
+        border: 1.5px solid #e6e6e6;
+        padding: 18px 0;
+      }
+      .gallery img {
+        width: 180px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(191, 161, 74, 0.08);
+        border: 1.5px solid #e6e6e6;
+        background: #fdf6e3;
+        transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+      }
+      .gallery img:hover {
+        box-shadow: 0 6px 24px rgba(191, 161, 74, 0.18);
+        transform: scale(1.07) rotate(-1deg);
+        border-color: #bfa14a;
+      }
+      .dashboard-section {
+        background: #fdf6e3
+          url("https://www.transparenttextures.com/patterns/moroccan.png");
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(191, 161, 74, 0.06);
+        padding: 36px 40px 32px 40px;
+        position: relative;
+        z-index: 1;
+        border: 1.5px solid #e6e6e6;
+        margin-bottom: 32px;
+      }
+      footer {
+        background: #fdf6e3
+          url("https://www.transparenttextures.com/patterns/wood.png");
+        color: #5a4321;
+        text-align: center;
+        padding: 20px 0 12px 0;
+        font-size: 1.05rem;
+        border-top: 1px solid #e6e6e6;
+        margin-top: 44px;
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+      /* CARD TEXT: All cards use light brown */
+      .info-card h2,
+      .info-card p,
+      .quiz-card h2,
+      .quiz-card p {
+        color: #8d6e46 !important;
+      }
+      @media (max-width: 1100px) {
+        .dashboard-main {
+          max-width: 98vw;
+          padding: 0 8px;
+        }
+        .dashboard-card-row {
+          flex-direction: column;
+          align-items: center;
+        }
+        .dashboard-section {
+          max-width: 98vw;
+          padding: 18px 6vw 18px 6vw;
+        }
+      }
+      .dev-topright {
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        top: auto;
+        left: auto;
+        width: 54px;
+        height: 54px;
+        background: linear-gradient(135deg, #bfa14a 60%, #7a5c2e 100%);
+        border-radius: 50%;
+        box-shadow: 0 2px 10px rgba(191, 161, 74, 0.13);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1001;
+        transition: box-shadow 0.2s, transform 0.2s;
+        border: 2px solid #fffbe6;
+      }
+      .dev-topright:hover {
+        box-shadow: 0 4px 18px rgba(191, 161, 74, 0.22);
+        transform: scale(1.08);
+      }
+      .dev-topright img {
+        width: 32px;
+        height: 32px;
+        filter: drop-shadow(0 2px 6px #fffbe6);
+      }
+      @media (max-width: 700px) {
+        .dev-topright {
+          bottom: 12px;
+          right: 12px;
+          width: 42px;
+          height: 42px;
+        }
+        .dev-topright img {
+          width: 22px;
+          height: 22px;
+        }
+      }
+      .dev-popup {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.18);
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        transition: background 0.2s;
+      }
+      .dev-popup.show {
+        animation: fadeIn 0.3s;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .dev-popup-content {
+        background: #fffbe6;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(191, 161, 74, 0.22), 0 1.5px 8px #bfa14a33;
+        padding: 36px 44px 28px 44px;
+        min-width: 280px;
+        max-width: 95vw;
+        text-align: left;
+        position: relative;
+        font-size: 1.13rem;
+        color: #5a4321;
+        animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        border: 2.5px solid #bfa14a;
+        transition: transform 0.25s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+          box-shadow 0.2s;
+        transform: scale(0.98);
+      }
+      .dev-popup.show .dev-popup-content {
+        transform: scale(1.04);
+        box-shadow: 0 12px 48px rgba(191, 161, 74, 0.28), 0 2px 12px #bfa14a44;
+      }
+      @keyframes popIn {
+        0% {
+          transform: scale(0.7) translateY(60px);
+          opacity: 0;
+        }
+        80% {
+          transform: scale(1.08) translateY(-8px);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1) translateY(0);
+          opacity: 1;
+        }
+      }
+      .dev-close {
+        position: absolute;
+        top: 10px;
+        right: 18px;
+        font-size: 1.7rem;
+        color: #bfa14a;
+        cursor: pointer;
+        font-weight: bold;
+        transition: color 0.2s, transform 0.2s;
+      }
+      .dev-close:hover {
+        color: #7a5c2e;
+        transform: scale(1.2) rotate(8deg);
+      }
+      .dev-popup-content h3 {
+        margin-top: 0;
+        color: #bfa14a;
+        font-size: 1.35rem;
+        letter-spacing: 0.5px;
+        text-align: center;
+        margin-bottom: 12px;
+        font-family: "Cairo", "Amiri", serif;
+      }
+      .dev-popup-content a {
+        color: #2e7d32;
+        text-decoration: underline;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .dev-popup-content a:hover {
+        color: #bfa14a;
+      }
+      .dev-popup-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .dev-popup-content .dev-avatar {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #bfa14a 60%, #7a5c2e 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 8px #bfa14a33;
+        align-self: center;
+      }
+      .dev-popup-content .dev-avatar img {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        filter: drop-shadow(0 2px 6px #fffbe6);
+      }
+      @media (max-width: 700px) {
+        .dev-popup-content {
+          padding: 18px 8px 14px 8px;
+          min-width: 170px;
+        }
+      }
+    </style>
+    <script>
+      // Make navigation link for Academics scroll to the Academics card
+      const academicsNavLink = document.getElementById("academics-nav-link");
+      if (academicsNavLink) {
+        academicsNavLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          const academicsCard = document.getElementById("academics");
+          if (academicsCard) {
+            academicsCard.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      }
+
+      // Developer Top Right Icon popup logic
+      const devTopRight = document.getElementById("devTopRight");
+      const devPopup = document.getElementById("devPopup");
+      const devClose = document.getElementById("devClose");
+      if (devTopRight) {
+        devTopRight.addEventListener("click", () => {
+          devPopup.style.display = "flex";
+          setTimeout(() => {
+            devPopup.classList.add("show");
+          }, 10);
+        });
+      }
+      if (devClose) {
+        devClose.addEventListener("click", () => {
+          devPopup.classList.remove("show");
+          setTimeout(() => {
+            devPopup.style.display = "none";
+          }, 250);
+        });
+      }
+      if (devPopup) {
+        devPopup.addEventListener("click", (e) => {
+          if (e.target === devPopup) {
+            devPopup.classList.remove("show");
+            setTimeout(() => {
+              devPopup.style.display = "none";
+            }, 250);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

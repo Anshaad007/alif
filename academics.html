@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Academics | Alif Moral School</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(135deg, #fdf6e3 0%, #f8f5ee 100%);
+        font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+        color: #5a4321;
+        margin: 0;
+        padding: 0;
+      }
+      .academics-header {
+        text-align: center;
+        padding: 2.5rem 1rem 1.5rem 1rem;
+        font-family: "Cairo", serif;
+        color: #7a5c2e;
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+      }
+      .categories-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        justify-content: center;
+        margin: 0 auto 40px auto;
+        max-width: 1100px;
+      }
+      .category-card {
+        background: #fdf6e3
+          url("https://www.transparenttextures.com/patterns/moroccan.png");
+        border-radius: 24px;
+        box-shadow: 0 2px 16px rgba(191, 161, 74, 0.1);
+        padding: 32px 28px 24px 28px;
+        min-width: 260px;
+        max-width: 320px;
+        flex: 1 1 260px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        border: 1.5px solid #e6e6e6;
+        transition: box-shadow 0.2s, transform 0.2s;
+        position: relative;
+        margin-bottom: 12px;
+      }
+      .category-card:hover {
+        box-shadow: 0 8px 32px rgba(191, 161, 74, 0.18);
+        transform: translateY(-6px) scale(1.04);
+        border-color: #bfa14a;
+      }
+      .category-title {
+        font-family: "Cairo", serif;
+        font-size: 1.7rem;
+        color: #bfa14a;
+        margin-bottom: 10px;
+        text-align: center;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        transition: color 0.2s, text-shadow 0.2s;
+        text-shadow: 0 2px 8px #f8f5ee, 0 1px 0 #bfa14a;
+      }
+      .category-card:hover .category-title {
+        color: #7a5c2e;
+        text-shadow: 0 4px 16px #bfa14a44, 0 1px 0 #fffbe6;
+      }
+      .category-icon {
+        font-size: 2.7rem;
+        margin-bottom: 16px;
+        transition: transform 0.2s;
+      }
+      .category-card:hover .category-icon {
+        transform: scale(1.18) rotate(-6deg);
+      }
+      .category-modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.25);
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-content {
+        background: #fffbe6;
+        border-radius: 18px;
+        box-shadow: 0 4px 32px rgba(191, 161, 74, 0.18);
+        padding: 32px 28px 24px 28px;
+        max-width: 400px;
+        min-width: 260px;
+        text-align: center;
+        position: relative;
+        font-family: "Roboto", Arial, sans-serif;
+        color: #7a5c2e;
+        animation: fadeInModal 0.3s;
+      }
+      @keyframes fadeInModal {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .close-btn {
+        position: absolute;
+        top: 12px;
+        right: 18px;
+        background: #bfa14a;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .close-btn:hover {
+        background: #7a5c2e;
+      }
+      .dashboard-header {
+        background: #fff;
+        padding: 1rem 2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 100;
+      }
+      .dashboard-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .dashboard-brand {
+        display: flex;
+        align-items: center;
+        font-family: "Cairo", serif;
+        color: #7a5c2e;
+        font-size: 1.5rem;
+      }
+      .dashboard-logo {
+        width: 48px;
+        height: 48px;
+        margin-right: 0.5rem;
+      }
+      .dashboard-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 1.5rem;
+      }
+      .dashboard-menu li {
+        position: relative;
+      }
+      .dashboard-menu a {
+        text-decoration: none;
+        color: #5a4321;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .dashboard-menu a:hover {
+        color: #7a5c2e;
+      }
+      .dashboard-menu .active {
+        font-weight: 700;
+        color: #7a5c2e;
+      }
+      .dashboard-main {
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .dashboard-section {
+        margin-bottom: 2.5rem;
+      }
+      .dashboard-section h2 {
+        font-family: "Cairo", serif;
+        color: #7a5c2e;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      .dashboard-section p {
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+      .dashboard-section ul {
+        list-style: disc;
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .dashboard-section ul li {
+        margin-bottom: 0.5rem;
+      }
+      .dashboard-footer {
+        text-align: center;
+        padding: 1rem 0;
+        background: #f8f5ee;
+        position: relative;
+        z-index: 100;
+      }
+      .dashboard-footer p {
+        margin: 0;
+        color: #7a5c2e;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="dashboard-header">
+      <nav class="dashboard-nav">
+        <div class="dashboard-brand">
+          <img
+            src="https://img.icons8.com/color/48/000000/school-building.png"
+            alt="School Logo"
+            class="dashboard-logo"
+          />
+          <span>Alif Moral School</span>
+        </div>
+        <ul class="dashboard-menu">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="academics.html" class="active">Academics</a></li>
+          <li><a href="index.html#admissions">Admissions</a></li>
+          <li><a href="index.html#courses">Courses</a></li>
+          <li><a href="index.html#gallery">Gallery</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="dashboard-main">
+      <section class="dashboard-section">
+        <h2>Courses</h2>
+        <div
+          class="courses-description"
+          style="
+            font-size: 1.18rem;
+            color: #7a5c2e;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-family: 'Cairo', serif;
+          "
+        >
+          <strong>Discover a world of learning at Alif Moral School!</strong
+          ><br />
+          <span style="color: #bfa14a"
+            >Our courses are designed to nurture every aspect of your child's
+            growth:</span
+          ><br />
+          <span style="display: inline-block; margin: 8px 0"
+            >• <b>Hifz Course</b>: Embark on a spiritual journey with expert
+            Qur'an memorization guidance.</span
+          ><br />
+          <span style="display: inline-block; margin: 8px 0"
+            >• <b>Islamic Studies & Quranic Education</b>: Deepen understanding
+            of faith, values, and the Holy Book.</span
+          ><br />
+          <span style="display: inline-block; margin: 8px 0"
+            >• <b>Arabic Language</b>: Unlock the beauty of Arabic for both
+            daily life and religious study.</span
+          ><br />
+          <span style="display: inline-block; margin: 8px 0"
+            >• <b>Khutbah Training</b>: Build confidence and leadership through
+            public speaking and sermon delivery.</span
+          ><br />
+          <span style="display: inline-block; margin: 8px 0"
+            >• <b>Madrassa Classes</b>: Experience a blend of tradition and
+            modernity in a caring, interactive environment.</span
+          ><br />
+          <span style="color: #2e7d32; font-weight: 500"
+            >Join us to inspire, empower, and shape a bright future for your
+            child!</span
+          >
+        </div>
+      </section>
+
+      <div class="categories-container">
+        <div class="category-card" data-modal="modal-regular">
+          <div class="category-icon">📚</div>
+          <div class="category-title"><br /><small>Regular Batches</small></div>
+        </div>
+        <div class="category-card" data-modal="modal-holiday">
+          <div class="category-icon">🏖️</div>
+          <div class="category-title"><br /><small>Holiday Batches</small></div>
+        </div>
+        <div class="category-card" data-modal="modal-individual">
+          <div class="category-icon">🧑‍🎓</div>
+          <div class="category-title">
+            <br /><small>Individual Schemes</small>
+          </div>
+        </div>
+        <div class="category-card" data-modal="modal-professional">
+          <div class="category-icon">💼</div>
+          <div class="category-title">
+            <br /><small>Professional Batches</small>
+          </div>
+        </div>
+        <div class="category-card" data-modal="modal-hifdh">
+          <div class="category-icon">🕋</div>
+          <div class="category-title">
+            <br /><small>Hifdh Special Batches</small>
+          </div>
+        </div>
+        <div class="category-card" data-modal="modal-quran">
+          <div class="category-icon">📖</div>
+          <div class="category-title">
+            <br /><small>Qur'an Special Batches</small>
+          </div>
+        </div>
+        <div class="category-card" data-modal="modal-tajweed">
+          <div class="category-icon">🔊</div>
+          <div class="category-title">
+            <br /><small>Tajweed Special Batches</small>
+          </div>
+        </div>
+        <div class="category-card" data-modal="modal-khutbah">
+          <div class="category-icon">🗣️</div>
+          <div class="category-title">
+            <br /><small>Khutbah Training Batches</small>
+          </div>
+        </div>
+        <div class="category-card" data-modal="modal-european">
+          <div class="category-icon"></div>
+          <div class="category-title">
+            <br /><small>European Batches</small>
+          </div>
+        </div>
+        <div class="category-card" data-modal="modal-gulf">
+          <div class="category-icon">🇸🇦</div>
+          <div class="category-title"><br /><small>Gulf Batches</small></div>
+        </div>
+        <div class="category-card" data-modal="modal-elders">
+          <div class="category-icon">🧑</div>
+          <div class="category-title"><br /><small>Elders Batches</small></div>
+        </div>
+        <div class="category-card" data-modal="modal-preschool">
+          <div class="category-icon">👶</div>
+          <div class="category-title">
+            <br /><small>Pre-School Program</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modals -->
+      <div class="category-modal" id="modal-regular">
+        <div class="modal-content">
+          <button class="close-btn" onclick="closeModal('modal-regular')">
+            &times;
+          </button>
+          <h3>Regular Batches</h3>
+          <p>
+            Our Regular Batches offer a comprehensive curriculum for students of
+            all ages, focusing on academic excellence and moral development
+            throughout the year.
+          </p>
+        </div>
+      </div>
+      <div class="category-modal" id="modal-holiday">
+        <div class="modal-content">
+          <button class="close-btn" onclick="closeModal('modal-holiday')">
+            &times;
+          </button>
+          <h3>Holiday Batches</h3>
+          <p>
+            Specially designed for students during school holidays, these
+            batches provide intensive learning and enrichment activities in a
+            short span.
+          </p>
+        </div>
+      </div>
+      <div class="category-modal" id="modal-individual">
+        <div class="modal-content">
+          <button class="close-btn" onclick="closeModal('modal-individual')">
+            &times;
+          </button>
+          <h3>Individual Schemes</h3>
+          <p>
+            Personalized learning plans tailored to each student's pace and
+            needs, ensuring focused attention and optimal progress.
+          </p>
+        </div>
+      </div>
+      <div class="category-modal" id="modal-professional">
+        <div class="modal-content">
+          <button class="close-btn" onclick="closeModal('modal-professional')">
+            &times;
+          </button>
+          <h3>Professional Batches</h3>
+          <p>
+            Advanced courses for professionals and adults seeking to enhance
+            their knowledge in Islamic studies and general education.
+          </p>
+        </div>
+      </div>
+      <div class="category-modal" id="modal-hifdh">
+        <div class="modal-content">
+          <button class="close-btn" onclick="closeModal('modal-hifdh')">
+            &times;
+          </button>
+          <h3>Hifdh Special Batches</h3>
+          <p>
+            Intensive memorization programs for students dedicated to completing
+            the Qur'an, with expert guidance and support.
+          </p>
+        </div>
+      </div>
+      <div class="category-modal" id="modal-quran">
+        <div class="modal-content">
+          <button class="close-btn" onclick="closeModal('modal-quran')">
+            &times;
+          </button>
+          <h3>Qur'an Special Batches</h3>
+          <p>
+            Focused on recitation, understanding, and application of the Qur'an,
+            these batches nurture a deep connection with the Holy Book.
+          </p>
+        </div>
+      </div>
+      <div class="category-modal" id="modal-tajweed">
+        <div class="modal-content">
+          <button class="close-btn" onclick="closeModal('modal-tajweed')">
+            &times;
+          </button>
+          <h3>Tajweed Special Batches</h3>
+          <p>
+            Specialized classes to master the rules of Tajweed, ensuring correct
+            and beautiful recitation of the Qur'an.
+          </p>
+        </div>
+      </div>
+      <div class="category-modal" id="modal-khutbah">
+        <div class="modal-content">
+          <button class="close-btn" onclick="closeModal('modal-khutbah')">
+            &times;
+          </button>
+          <h3>Khutbah Training Batches</h3>
+          <p>
+            Training for students interested in delivering Khutbahs, focusing on
+            public speaking, Islamic knowledge, and leadership skills.
+          </p>
+        </div>
+      </div>
+      <div class="category-modal" id="modal-european">
+        <div class="modal-content">
+          <button class="close-btn" onclick="closeModal('modal-european')">
+            &times;
+          </button>
+          <h3>European Batches</h3>
+          <p>
+            Programs tailored for students residing in Europe, addressing their
+            unique cultural and educational needs.
+          </p>
+        </div>
+      </div>
+      <div class="category-modal" id="modal-gulf">
+        <div class="modal-content">
+          <button class="close-btn" onclick="closeModal('modal-gulf')">
+            &times;
+          </button>
+          <h3>Gulf Batches</h3>
+          <p>
+            Special batches for students in Gulf countries, with flexible
+            timings and region-specific content.
+          </p>
+        </div>
+      </div>
+      <div class="category-modal" id="modal-elders">
+        <div class="modal-content">
+          <button class="close-btn" onclick="closeModal('modal-elders')">
+            &times;
+          </button>
+          <h3>Elders Batches</h3>
+          <p>
+            Dedicated programs for elders, focusing on lifelong learning,
+            spiritual growth, and community engagement.
+          </p>
+        </div>
+      </div>
+      <div class="category-modal" id="modal-preschool">
+        <div class="modal-content">
+          <button class="close-btn" onclick="closeModal('modal-preschool')">
+            &times;
+          </button>
+          <h3>Pre-School Program</h3>
+          <p>
+            Early childhood education with a blend of Islamic values and
+            foundational academic skills in a nurturing environment.
+          </p>
+        </div>
+      </div>
+    </main>
+    <footer class="dashboard-footer">
+      <p>&copy; 2025 Alif Moral School. All rights reserved.</p>
+    </footer>
+    <script>
+      // Modal logic
+      document.querySelectorAll(".category-card").forEach((card) => {
+        card.addEventListener("click", function () {
+          const modalId = this.getAttribute("data-modal");
+          document.getElementById(modalId).style.display = "flex";
+        });
+      });
+      function closeModal(id) {
+        document.getElementById(id).style.display = "none";
+      }
+      // Close modal on background click
+      document.querySelectorAll(".category-modal").forEach((modal) => {
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal) {
+            modal.style.display = "none";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

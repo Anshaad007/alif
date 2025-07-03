@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background-color: #fdfdfd;
+  color: #222;
+}
+
+header {
+  background: #2c3e50;
+  color: white;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h1 {
+  font-size: 1.5rem;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 1.5rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+section {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), #000), url('images/banner.jpg') no-repeat center/cover;
+  color: white;
+  text-align: center;
+  padding: 6rem 2rem;
+  border-radius: 12px;
+}
+
+.hero-content h2, .dashboard-hero h2 {
+  color: #bfa14a;
+  text-shadow: 0 2px 8px #fffbe6, 0 1px 0 #7a5c2e;
+  font-family: 'Scheherazade New', 'Amiri', serif;
+}
+
+.hero-content p, .dashboard-hero p {
+  color: #7a5c2e;
+  text-shadow: 0 1px 6px #fffbe6;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.gallery img {
+  width: calc(33.333% - 10px);
+  border-radius: 10px;
+}
+
+footer {
+  text-align: center;
+  background: #2c3e50;
+  color: white;
+  padding: 1rem;
+  margin-top: 2rem;
+}
