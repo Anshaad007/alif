@@ -97,7 +97,7 @@ if (document.getElementById('admissionForm')) {
     var formData = new FormData(form);
     statusDiv.textContent = 'Submitting...';
     // TODO: Replace with your actual Google Apps Script Web App URL
-    var scriptURL = 'https://script.google.com/macros/s/AKfycbxO16xN9R6DgW6peN4iGqnr_iB38Z1usy-Vd24ltagiB3a9Isp4BzUqUfCWXgAOaMvf/exec';
+    var scriptURL = 'https://script.google.com/macros/s/AKfycbzR77b0r81Vyi_Otci8KqUPnQD_CPZPWTaFP_uEIEHq76x1sbfwxViru1g9tggWy9lQ/exec';
     fetch(scriptURL, {
       method: 'POST',
       body: formData
