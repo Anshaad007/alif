@@ -281,26 +281,7 @@
             <option value="Arabic Language">Arabic Language</option>
             <option value="Khutbah Training">Khutbah Training</option>
             <option value="Madrassa Classes">Madrassa Classes</option>
-            <option value="Hifz Section">Hifz classes</option>
-            <option value="Quran classes">Quran classes</option>
-            <option value="Elders Batches">Elders Batches</option>
           </select>
-
-          <div id="gradeField" style="display: none; margin-bottom: 18px">
-            <label for="grade">Grade (Class 1 to 9)</label>
-            <select id="grade" name="grade">
-              <option value="">Select Grade</option>
-              <option value="Class 1">Class 1</option>
-              <option value="Class 2">Class 2</option>
-              <option value="Class 3">Class 3</option>
-              <option value="Class 4">Class 4</option>
-              <option value="Class 5">Class 5</option>
-              <option value="Class 6">Class 6</option>
-              <option value="Class 7">Class 7</option>
-              <option value="Class 8">Class 8</option>
-              <option value="Class 9">Class 9</option>
-            </select>
-          </div>
 
           <button type="submit">Submit Application</button>
           <div id="formStatus" style="margin-top: 12px; font-weight: 500"></div>
@@ -326,40 +307,17 @@
       <p>&copy; 2025 Alif Moral School. All rights reserved.</p>
     </footer>
     <script>
-      // Show/hide grade field based on course selection
-      document.addEventListener("DOMContentLoaded", function () {
-        var courseSelect = document.getElementById("course");
-        var gradeField = document.getElementById("gradeField");
-        var gradeSelect = document.getElementById("grade");
-        var form = document.getElementById("admissionForm");
-        var statusDiv = document.getElementById("formStatus");
-
-        function toggleGradeField() {
-          if (courseSelect.value === "Madrassa Classes") {
-            gradeField.style.display = "";
-            gradeSelect.required = true;
-          } else {
-            gradeField.style.display = "none";
-            gradeSelect.required = false;
-            gradeSelect.value = "";
-          }
-        }
-        courseSelect.addEventListener("change", toggleGradeField);
-        toggleGradeField(); // Initial call in case of autofill
-
-        form.addEventListener("submit", function (e) {
-          // If grade is required but not selected, prevent submit
-          if (courseSelect.value === "Madrassa Classes" && !gradeSelect.value) {
-            statusDiv.style.color = "red";
-            statusDiv.textContent =
-              "Please select a grade for Madrassa Classes.";
-            e.preventDefault();
-            return;
-          }
-          statusDiv.textContent = "Submitting...";
+      document
+        .getElementById("admissionForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          var form = e.target;
           var formData = new FormData(form);
+          var statusDiv = document.getElementById("formStatus");
+          statusDiv.textContent = "Submitting...";
+          // TODO: Replace with your actual Google Apps Script Web App URL
           var scriptURL =
-            "https://script.google.com/macros/s/AKfycbyZajnbhCbhmkblWTzdh06sCVZfjqlZfE964E_FYu1vfQXkVj5dPMj72W4pQ2P4mLYx/exec";
+            "https://script.google.com/macros/s/AKfycbz1mROnwFUk_HGPaeUzxSG4UOjOM-rVzg0GZxvpAuHuqWuAOB9s08Pu3NXZBY_f2eeH/exec";
           fetch(scriptURL, {
             method: "POST",
             body: formData,
@@ -369,7 +327,6 @@
                 statusDiv.style.color = "#2e7d32";
                 statusDiv.textContent = "Application submitted successfully!";
                 form.reset();
-                toggleGradeField();
               } else {
                 throw new Error("Network response was not ok");
               }
@@ -380,7 +337,6 @@
                 "Submission failed. Please try again later.";
             });
         });
-      });
     </script>
   </body>
 </html>
